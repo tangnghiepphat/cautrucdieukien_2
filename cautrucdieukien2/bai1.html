@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="doC" placeholder="nhap vao do C">
+    <button onclick="biendoi()">Doi</button>
+
+    <script>
+        function biendoi(){
+        let a = +document.getElementById("doC").value;
+        let b= a* (9/5) +32 ;
+            document.writeln(a + "°C = " + b.toFixed(2) + "°F");
+            
+        }
+
+    </script>
+</body>
+</html>

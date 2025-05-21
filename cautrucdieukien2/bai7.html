@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>phuongtrinhbac2</title>
+</head>
+
+<body>
+    <p> ax^2 + bx + c = 0</p>
+
+    <input id="soA" placeholder=" nhap a">
+    <input id="soB" placeholder=" nhap b">
+    <input id="soC" placeholder=" nhap c">
+    <button onclick="timnghiem()">Tim nghiem</button>
+    <p id="ketqua"></p>
+    <script>
+        function timnghiem() {
+            let a = +document.getElementById("soA").value;
+            let b = +document.getElementById("soB").value;
+            let c = +document.getElementById("soC").value;
+            let e = document.getElementById("ketqua")
+
+            if (a === 0) {
+                if (b === 0) {
+                    if (c == 0) {
+                        e.innerHTML = "vo so nghiem";
+                        return;
+                    } else {
+                        e.innerHTML = "vo nghiem";
+                        return;
+                    }
+                } else {
+                    e.innerHTML = " phuong trinh bac 1 co nghiem la " + -c / b;
+                    return;
+                }
+            }
+            let d = b ** 2 - 4 * a * c;
+
+            if (d > 0) {
+                e.innerHTML = "co 2 nghiem la " + (-b + Math.sqrt(d)) / (2 * a) + " va " + (-b - Math.sqrt(d)) / (2 * a)
+            }
+            if (d === 0) {
+                e.innerHTML = "co 1 nghiem kep la " + -b / (2 * a);
+            }
+            if (d < 0) { e.innerHTML = "vo nghiem" }
+        }
+
+    </script>
+</body>
+
+</html>

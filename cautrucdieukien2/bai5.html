@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai5</title>
+</head>
+<body>
+
+<body>
+    <p>Tinh dien tich hinh tam giac vuong</p>
+    <input id="canhA" placeholder="nhap vao canh a hinh tam giac">
+    <input id="canhB" placeholder="nhap vao canh b hinh tam giac">
+    
+    <button onclick="tinhDienTich()">Tinh</button>
+<p id="ketqua"></p>
+    <script>
+       function tinhDienTich() {
+            let a = +document.getElementById("canhA").value;
+            let b = +document.getElementById("canhB").value;
+            if (isNaN(a,b) || a,b <= 0) {
+                document.getElementById("ketqua").innerHTML = "vui long nhap so hop le";
+                return;
+            }
+            let S = (a*b)/2
+            document.getElementById("ketqua").innerHTML = "Dien tich hinh tam giac la " + S;
+        }
+        
+
+    </script>
+</body>
+
+</html>
+</body>
+</html>

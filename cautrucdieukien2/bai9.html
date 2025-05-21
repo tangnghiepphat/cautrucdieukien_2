@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai9</title>
+</head>
+
+<body>
+    <p>Kiem tra 3 canh a b c cua tam giac</p>
+    <input id="soA" placeholder=" nhap a">
+    <input id="soB" placeholder=" nhap b">
+    <input id="soC" placeholder=" nhap c">
+    <button onclick="kiemtra()">Tim nghiem</button>
+    <p id="ketqua"></p>
+
+    <script>
+        function kiemtra() {
+            let a = document.getElementById("soA").value;
+            let b = document.getElementById("soB").value;
+            let c = document.getElementById("soC").value;
+            let ketqua;
+
+            if (a === "" || b === "" || c === "") {
+                ketqua = "Vui long nhap day du 3 canh a, b, c";
+            } else if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                ketqua = "Vui long nhap so";
+            } else if (a <= 0 || b <= 0 || c <= 0) {
+                ketqua = "Canh phai > 0";
+            } else if (a + b > c && a + c > b && b + c > a) {
+                ketqua = "3 canh a, b, c tao thanh tam giac";
+            } else {
+                ketqua = "3 canh a, b, c khong tao thanh tam giac";
+            }
+
+            document.getElementById("ketqua").textContent = ketqua;
+        }
+    </script>
+</body>
+
+</html>
