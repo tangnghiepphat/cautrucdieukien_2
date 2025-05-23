@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Bài Tập JavaScript</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            height: 100%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 50px;
+            background-color: aqua;
+        }
+
+        td {
+            width: 25%;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Chọn bài để thực hiện</h2>
+    <table>
+        <tr>
+            <td>
+                <p>Đổi độ C sang độ F</p>
+                <input id="doC" placeholder="Nhập độ C">
+                <button onclick="doiNhietDo()">Đổi</button>
+                <p id="kq1"></p>
+            </td>
+            <td>
+                <p>Đổi mét sang feet</p>
+                <input id="met" placeholder="Nhập số mét">
+                <button onclick="doiMet()">Đổi</button>
+                <p id="kq2"></p>
+            </td>
+            <td>
+                <p>Tính diện tích hình vuông</p>
+                <input id="canhVuong" placeholder="Nhập cạnh">
+                <button onclick="dienTichVuong()">Tính</button>
+                <p id="kq3"></p>
+            </td>
+        <tr>
+            <td>
+                <p>Tính diện tích hình chữ nhật</p>
+                <input id="canhAcn" placeholder="Nhập cạnh a">
+                <input id="canhBcn" placeholder="Nhập cạnh b">
+                <button onclick="dienTichCN()">Tính</button>
+                <p id="kq4"></p>
+            </td>
+            <td>
+                <p>Diện tích tam giác vuông</p>
+                <input id="canhAtg" placeholder="Nhập cạnh a">
+                <input id="canhBtg" placeholder="Nhập cạnh b">
+                <button onclick="dienTichTG()">Tính</button>
+                <p id="kq5"></p>
+            </td>
+            <td>
+                <p>Giải phương trình bậc 1 <br> ax+b=c</p>
+                <input id="soA1" placeholder="Nhập a">
+                <input id="soB1" placeholder="Nhập b">
+                <button onclick="ptBac1()">Giải</button>
+                <p id="kq6"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Giải phương trình bậc 2 <br> ax^2+bx+c=0</p>
+
+                <input id="soA2" placeholder="Nhập a">
+                <input id="soB2" placeholder="Nhập b">
+                <input id="soC2" placeholder="Nhập c">
+                <button onclick="ptBac2()">Giải</button>
+                <p id="kq7"></p>
+            </td>
+            <td>
+                <p>Kiểm tra tuổi người</p>
+                <input id="tuoi" placeholder="Nhập tuổi">
+                <button onclick="kiemTraTuoi()">Kiểm tra</button>
+                <p id="kq8"></p>
+            </td>
+            <td>
+                <p>Kiem tra 3 canh a b c cua tam giac</p>
+                <input id="soA" placeholder=" nhap a">
+                <input id="soB" placeholder=" nhap b">
+                <input id="soC" placeholder=" nhap c">
+                <button onclick="kiemtra()">Tim nghiem</button>
+                <p id="kq9"></p>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function doiNhietDo() {
+            let a = +document.getElementById("doC").value;
+            let b = a * 9 / 5 + 32;
+            document.getElementById("kq1").innerText = `${a}°C = ${b.toFixed(2)}°F`;
+        }
+
+        function doiMet() {
+            let a = +document.getElementById("met").value;
+            let b = a * 3.2808;
+            document.getElementById("kq2").innerText = `${a}m = ${b.toFixed(2)} feet`;
+        }
+
+        function dienTichVuong() {
+            let a = +document.getElementById("canhVuong").value;
+            if (isNaN(a) || a <= 0) {
+                document.getElementById("kq3").innerText = "Vui lòng nhập cạnh hợp lệ";
+                return;
+            }
+            document.getElementById("kq3").innerText = `Diện tích hình vuông: ${a ** 2}`;
+        }
+
+        function dienTichCN() {
+            let a = +document.getElementById("canhAcn").value;
+            let b = +document.getElementById("canhBcn").value;
+            if (a <= 0 || b <= 0) {
+                document.getElementById("kq4").innerText = "Vui lòng nhập số hợp lệ";
+                return;
+            }
+            document.getElementById("kq4").innerText = `Diện tích hình chữ nhật: ${a * b}`;
+        }
+
+        function dienTichTG() {
+            let a = +document.getElementById("canhAtg").value;
+            let b = +document.getElementById("canhBtg").value;
+            if (a <= 0 || b <= 0) {
+                document.getElementById("kq5").innerText = "Vui lòng nhập số hợp lệ";
+                return;
+            }
+            document.getElementById("kq5").innerText = `Diện tích tam giác vuông: ${(a * b) / 2}`;
+        }
+
+        function ptBac1() {
+            let a = +document.getElementById("soA1").value;
+            let b = +document.getElementById("soB1").value;
+            if (a === 0) {
+                document.getElementById("kq6").innerText = (b === 0) ? "Vô số nghiệm" : "Vô nghiệm";
+                return;
+            }
+            document.getElementById("kq6").innerText = `Nghiệm x = ${-b / a}`;
+        }
+
+        function ptBac2() {
+            let a = +document.getElementById("soA2").value;
+            let b = +document.getElementById("soB2").value;
+            let c = +document.getElementById("soC2").value;
+            let d = b ** 2 - 4 * a * c;
+
+            if (a === 0) {
+                ptBac1();
+                return;
+            }
+
+            if (d > 0) {
+                let x1 = (-b + Math.sqrt(d)) / (2 * a);
+                let x2 = (-b - Math.sqrt(d)) / (2 * a);
+                document.getElementById("kq7").innerText = `Có 2 nghiệm: ${x1}, ${x2}`;
+            } else if (d === 0) {
+                document.getElementById("kq7").innerText = `Có nghiệm kép: ${-b / (2 * a)}`;
+            } else {
+                document.getElementById("kq7").innerText = "Vô nghiệm";
+            }
+        }
+
+        function kiemTraTuoi() {
+            let a = document.getElementById("tuoi").value.trim();
+            console.log("a la " +a);
+            let c= parseInt(a);
+            console.log("c la " +c);
+            if (isNaN(a) || a === "") {
+                document.getElementById("kq8").innerText = "Vui lòng nhập số hợp lệ";
+            }
+            else if (a <= 0 || a > 120 || a- c !== 0)
+            
+                document.getElementById("kq8").innerText = "Đây không phải tuổi người hợp lệ!";
+            else if (a > 0 && a <= 120)
+                document.getElementById("kq8").innerText = "Tuổi người hợp lệ!";
+
+        }
+
+        function kiemtra() {
+            let a = +document.getElementById("soA").value;
+            let b = +document.getElementById("soB").value;
+            let c = +document.getElementById("soC").value;
+            let ketqua;
+
+            if (a === "" || b === "" || c === "") {
+                ketqua = "Vui long nhap day du 3 canh a, b, c";
+            } else if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                ketqua = "Vui long nhap so";
+            } else if (a <= 0 || b <= 0 || c <= 0) {
+                ketqua = "Canh phai > 0";
+            } else if (a + b > c && a + c > b && b + c > a) {
+                ketqua = "3 canh a, b, c tao thanh tam giac";
+            } else {
+                ketqua = "3 canh a, b, c khong tao thanh tam giac";
+            }
+
+            document.getElementById("kq9").textContent = ketqua;
+        }
+    </script>
+</body>
+
+</html>
